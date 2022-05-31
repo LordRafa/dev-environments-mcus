@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Visual Studio Code MCU Development Environment On Docker
+Comment=This is a docker image with a Visual Studio Code MCU Development Environment
+Exec=dev-environments-mcus-onDocker.sh
+Terminal=false
+Type=Application
+Icon=dev-environments-mcus-onDocker
+Categories=Development;
