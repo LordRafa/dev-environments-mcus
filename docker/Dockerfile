@@ -15,17 +15,18 @@ ENV PICO_SDK_PATH="/tmp/pico-sdk"
 RUN ln -s "$APP_HOME" "/home/$USER"
 
 RUN groupadd -g "$GID" -r "$USER"
-RUN useradd -u "$UID" -g "$GID" -r "$USER"
+RUN useradd -u "$UID" -g "$GID" -r "$USER" -s /bin/bash
 
 # Provisioning required configs and executables
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod 755 /usr/local/bin/entrypoint.sh
 
-RUN apt update; apt -y upgrade
-RUN apt install -y git curl tio python3 git cmake gcc-arm-none-eabi gcc g++ \
+RUN apt update; apt -y upgrade \
+    apt install -y git curl tio python3 git cmake gcc-arm-none-eabi gcc g++ \
                    gdb-multiarch automake autoconf build-essential texinfo \ 
                    libtool libftdi-dev libusb-1.0-0-dev pkg-config libgpiod-dev \
-                   python-tk python3-tk python3-distutils python3.10-venv
+                   python3-tk python3-distutils python3.10-venv \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Pico SDK
 ENV PICO_SDK_PATH="/pico/sdk"
@@ -52,21 +53,18 @@ RUN git clone "https://github.com/raspberrypi/pico-playground.git" "/pico/playgr
     cd "/pico/playground" && git submodule update --init && cmake -S . -B build && cmake --build build -j 4
 
 RUN git clone https://github.com/raspberrypi/picotool.git /tmp/picotool && \
-    cd /tmp/picotool && cmake -S . -B build && cmake --build build -j 4 && cmake --install build
+    cd /tmp/picotool && cmake -S . -B build && cmake --build build -j 4 && cmake --install build && rm -rf /tmp/picotool
 
 RUN git clone https://github.com/raspberrypi/openocd.git -b rp2040 --depth=1 /tmp/openocd && \
     cd /tmp/openocd && \
     ./bootstrap && ./configure --enable-ftdi --enable-sysfsgpio --enable-bcm2835gpio --enable-picoprobe && \    
-    make -j4 && make install
+    make -j4 && make install && rm -rf /tmp/openocd
 
 # Arduino Cli
 RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
 
 # J-Link
 ENV PATH="$PATH:$APP_HOME/JLINK"
-
-# Cleaning Up
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Setting up entry point
 USER "$USER"
