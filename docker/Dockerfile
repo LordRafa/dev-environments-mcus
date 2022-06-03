@@ -44,13 +44,13 @@ RUN git clone "https://github.com/raspberrypi/pico-extras.git" "/pico/extras" &&
     cd "/pico/extras" && git submodule update --init
 
 RUN git clone "https://github.com/raspberrypi/picoprobe.git" "/pico/picoprobe" && \
-    cd "/pico/picoprobe" && git submodule update --init && cmake -S . -B build && cmake --build build -j 4
+    cd "/pico/picoprobe" && git submodule update --init
 
 RUN git clone "https://github.com/raspberrypi/pico-examples.git" "/pico/examples" && \
-    cd "/pico/examples" && git submodule update --init && cmake -S . -B build && cmake --build build -j 4
+    cd "/pico/examples" && git submodule update --init
 
 RUN git clone "https://github.com/raspberrypi/pico-playground.git" "/pico/playground" && \
-    cd "/pico/playground" && git submodule update --init && cmake -S . -B build && cmake --build build -j 4
+    cd "/pico/playground" && git submodule update --init
 
 RUN git clone https://github.com/raspberrypi/picotool.git /tmp/picotool && \
     cd /tmp/picotool && cmake -S . -B build && cmake --build build -j 4 && cmake --install build && rm -rf /tmp/picotool
