@@ -62,6 +62,9 @@ RUN git clone https://github.com/raspberrypi/openocd.git -b rp2040 --depth=1 /tm
 # Arduino Cli
 RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
 
+# J-Link
+ENV PATH="$PATH:$APP_HOME/JLINK"
+
 # Cleaning Up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
