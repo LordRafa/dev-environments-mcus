@@ -52,5 +52,9 @@ if [ ! -d "$HOME/.vscode-server/bin" ]; then
   "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension  vsciot-vscode.vscode-arduino
 fi
 
+if [ ! -d "$HOME/JLINK" ]; then
+  mkdir $HOME/JLINK
+fi
+
 exec "$@"
 
