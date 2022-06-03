@@ -8,7 +8,7 @@ CONTAINER_NAME="dev-environments-mcus"
 
 OPTS=" "
 
-if [ -z "$@" ]; then
+if [ $# -eq 0 ]; then
 
   docker run --rm -d --name="$CONTAINER_NAME" \
   -v /dev/bus/usb:/dev/bus/usb:ro --group-add plugdev --device-cgroup-rule 'c 189:* rwm' \
