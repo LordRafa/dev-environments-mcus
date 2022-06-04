@@ -15,7 +15,7 @@ ENV PICO_SDK_PATH="/tmp/pico-sdk"
 RUN ln -s "$APP_HOME" "/home/$USER"
 
 RUN groupadd -g "$GID" -r "$USER"
-RUN useradd -u "$UID" -g "$GID" -r "$USER" -s /bin/bash
+RUN useradd -u "$UID" -g "$GID" -r "$USER" -s /bin/bash --home "/home/$USER"
 
 # Provisioning required configs and executables
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
@@ -25,7 +25,7 @@ RUN apt update; apt -y upgrade && \
     apt install -y git curl tio python3 git cmake gcc-arm-none-eabi gcc g++ \
                    gdb-multiarch automake autoconf build-essential texinfo \ 
                    libtool libftdi-dev libusb-1.0-0-dev pkg-config libgpiod-dev \
-                   python3-tk python3-distutils python3.10-venv && \
+                   python3-tk python3-distutils python3.10-venv bash-completion && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Pico SDK

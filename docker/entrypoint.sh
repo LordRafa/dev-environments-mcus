@@ -48,8 +48,50 @@ if [ ! -d "$HOME/.vscode-server/bin" ]; then
   mkdir -vp ~/.vscode-server/bin/"${commit_sha}"
   # Extract the tarball to the right location.
   tar --no-same-owner -xzv --strip-components=1 -C "$HOME/.vscode-server/bin/${commit_sha}" -f "/tmp/${archive}"
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension cschlosser.doxdocgen
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension jeff-hykin.better-cpp-syntax
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension MS-CEINTL.vscode-language-pack-es
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension ms-vscode.cmake-tools
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension ms-vscode.cpptools
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension ms-vscode.cpptools-extension-pack
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension ms-vscode.cpptools-themes
   "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension platformio.platformio-ide
-  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension  vsciot-vscode.vscode-arduino
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension twxs.cmake
+  "$HOME/.vscode-server/bin/${commit_sha}/bin/code-server" --install-extension vsciot-vscode.vscode-arduino
+
+  python3 -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
+
+  cat <<EOF > .vscode-server/data/Machine/settings.json
+{
+  "arduino.useArduinoCli": true,
+  "arduino.path": "/usr/local/bin/",
+  "arduino.commandPath": "arduino-cli"
+}
+EOF
+
+fi
+
+if [ ! -f "$HOME/.bashrc" ]; then
+
+ cat <<EOF > "$HOME/.bashrc"
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+HISTSIZE=
+HISTFILESIZE=
+
+PS1='\[\033[01;32m\]\u\[\033[01;33m\]@\[\033[01;36m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ..="cd .."
+EOF
+
 fi
 
 if [ ! -d "$HOME/JLINK" ]; then

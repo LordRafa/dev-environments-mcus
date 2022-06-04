@@ -6,12 +6,11 @@ mkdir -p "$LOCAL_HOME" 2> /dev/null
 mkdir -p "$LOCAL_WORKSPACE" 2> /dev/null
 CONTAINER_NAME="dev-environments-mcus"
 
-OPTS=" "
-
 if [ $# -eq 0 ]; then
 
   docker run --rm -d --name="$CONTAINER_NAME" \
   -v /dev/bus/usb:/dev/bus/usb:ro --group-add plugdev --device-cgroup-rule 'c 189:* rwm' \
+  -v /dev/serial/:/dev/serial/:ro \
   -v "$LOCAL_HOME:/App_Home" -v "$LOCAL_WORKSPACE:/App_Home/mcu-projects" \
   lordrafa/dev-environments-mcus tail -f /dev/null
 
@@ -20,7 +19,7 @@ if [ $# -eq 0 ]; then
 
 else
 
-  docker run --rm -i ${OPTS} -v "$LOCAL_HOME:/App_Home" -v "$LOCAL_WORKSPACE:/App_Home/mcu-projects" lordrafa/dev-environments-mcus "$@"
+  docker run --rm -it -v "$LOCAL_HOME:/App_Home" -v "$LOCAL_WORKSPACE:/App_Home/mcu-projects" lordrafa/dev-environments-mcus "$@"
 
 fi
 
