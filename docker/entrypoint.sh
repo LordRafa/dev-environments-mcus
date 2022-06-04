@@ -74,12 +74,6 @@ fi
 if [ ! -f "$HOME/.bashrc" ]; then
 
  cat <<EOF > "$HOME/.bashrc"
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
 HISTSIZE=
 HISTFILESIZE=
 
