@@ -10,7 +10,7 @@ if [ $# -eq 0 ]; then
 
   docker run --rm -d --name="$CONTAINER_NAME" \
   -v /dev/bus/usb:/dev/bus/usb:ro --group-add plugdev --device-cgroup-rule 'c 189:* rwm' \
-  -v /dev/serial/:/dev/serial/:ro \
+  -v /dev/serial/:/dev/serial/:ro --device-cgroup-rule 'c 188:* rwm' \
   -v "$LOCAL_HOME:/App_Home" -v "$LOCAL_WORKSPACE:/App_Home/mcu-projects" \
   lordrafa/dev-environments-mcus tail -f /dev/null
 
