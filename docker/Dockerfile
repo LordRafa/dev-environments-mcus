@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-MAINTAINER Rafael Waldo Delgado Doblas
+LABEL author="Rafael Waldo Delgado Doblas"
 
 # Initial Setup
 ARG UID=1000

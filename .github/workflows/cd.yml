@@ -1,4 +1,4 @@
-name: CD for Visual Studio Code MCU Development Environment Docker Image
+name: MCUs Development Environment Build
 
 on:
   push:

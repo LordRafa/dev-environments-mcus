@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# This code was addapted from Khalifah Shabazz's download-vs-code-server.sh
-# gist avaiable at https://gist.github.com/b01/0a16b6645ab7921b0910603dfb85e4fb
+# This code was adapted from Khalifah Shabazz's download-vs-code-server.sh
+# gist available at https://gist.github.com/b01/0a16b6645ab7921b0910603dfb85e4fb
 
 if [ ! -d "$HOME/.vscode-server/bin" ]; then
 

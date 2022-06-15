@@ -9,4 +9,3 @@ sudo rm -rf "/etc/udev/rules.d/99-dev-environments-mcus-tty.rules"
 sudo rm -rf "/usr/local/bin/dev-environments-mcus-tty.sh"
 
 docker image rm lordrafa/dev-environments-mcus
-

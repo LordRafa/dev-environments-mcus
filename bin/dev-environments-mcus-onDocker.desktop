@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=MCU Dev Environment On Docker
-Comment=VS Code attached to a docker container prepared for MCU development
+Name=MCUs Dev Environment On Docker
+Comment=Visual Studio Code attached to a docker container prepared for MCU development
 Exec=dev-environments-mcus-onDocker.sh
 Terminal=false
 Type=Application
