@@ -34,10 +34,18 @@ In case you want to remove everything that was installed you can run **./uninsta
 
 [Dockerhub Project Page](https://hub.docker.com/r/lordrafa/dev-environments-mcus)
 
-## Attibutions
+## Attributions
 
 Thanks to the following people to share their work:
 
 * "IC SMD16SQ filled.svg" was created by <a title="W.Rebel, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:IC_SMD16SQ_filled.svg">W.Rebel, as CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, and share via Wikimedia Commons</a>
 
 * The entrypoint is based on Khalifah Shabazz's download-vs-code-server.sh available at [Github Gist](https://gist.github.com/b01/0a16b6645ab7921b0910603dfb85e4fb)
+
+* Arduino CLI software belongs to [Arduino](https://www.arduino.cc/)
+
+* Visual Studio Code belongs to [Microsoft](https://code.visualstudio.com/)
+
+* Raspberry Pi Pico SDK belongs to [Raspberry Pi](https://www.raspberrypi.com/)
+
+* PlatformIO for VSCode belongs to [PlatformIO](https://platformio.org/)
