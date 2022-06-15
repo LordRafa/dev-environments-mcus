@@ -15,7 +15,7 @@ if [ $# -eq 0 ]; then
   lordrafa/dev-environments-mcus tail -f /dev/null
 
   hex=$(printf \{\"containerName\"\:\""$CONTAINER_NAME"\"\} | od -A n -t x1 | tr -d '[\n\t ]')
-  code --folder-uri vscode-remote://attached-container+${hex}/App_Home/mcu-projects
+  code --file-uri vscode-remote://attached-container+${hex}/
 
 else
 
