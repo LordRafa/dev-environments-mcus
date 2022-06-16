@@ -9,7 +9,6 @@ ARG USER="vscode"
 ENV APP_HOME="/App_Home"
 
 ENV DEBIAN_FRONTEND="noninteractive"
-ENV PICO_SDK_PATH="/tmp/pico-sdk"
 
 # Setting up the user
 RUN ln -s "$APP_HOME" "/home/$USER"
