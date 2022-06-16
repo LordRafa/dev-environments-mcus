@@ -52,16 +52,16 @@ RUN git clone "https://github.com/raspberrypi/pico-examples.git" "/pico/examples
 RUN git clone "https://github.com/raspberrypi/pico-playground.git" "/pico/playground" && \
     cd "/pico/playground" && git submodule update --init
 
-RUN git clone https://github.com/raspberrypi/picotool.git /tmp/picotool && \
+RUN git clone "https://github.com/raspberrypi/picotool.git" /tmp/picotool && \
     cd /tmp/picotool && cmake -S . -B build && cmake --build build -j 4 && cmake --install build && rm -rf /tmp/picotool
 
-RUN git clone https://github.com/raspberrypi/openocd.git -b rp2040 --depth=1 /tmp/openocd && \
+RUN git clone "https://github.com/raspberrypi/openocd.git" -b rp2040 --depth=1 /tmp/openocd && \
     cd /tmp/openocd && \
     ./bootstrap && ./configure --enable-ftdi --enable-sysfsgpio --enable-bcm2835gpio --enable-picoprobe && \    
     make -j4 && make install && rm -rf /tmp/openocd
 
 # Arduino Cli
-RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+RUN curl -fsSL "https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh" | BINDIR=/usr/local/bin sh
 
 # J-Link
 ENV PATH="$PATH:$APP_HOME/JLINK"
@@ -72,4 +72,3 @@ VOLUME "$APP_HOME"
 VOLUME "$APP_HOME/mcu-projects"
 WORKDIR "/home/$USER"
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
-
