@@ -17,6 +17,6 @@ sudo cp bin/dev-environments-mcus-udev.sh /usr/local/bin/
 
 echo "Post installation notes:"
 echo "Make sure that $HOME/bin is in your PATH."
-echo "Remember that you must have Visual Studio Code already installed and must be on the PATH."
-echo "Application icon may require to close your session to show properly."
-echo "In order to add Segger's J-Link support you will need to manually copy J-Link binaries to $LOCAL_HOME/JLINK folder."
+echo "Remember that you must have installed Visual Studio Code before use this software."
+echo "The application icon may require to close your session to show up properly."
+echo "In order to add Segger's J-Link support you will need to copy J-Link binaries to $LOCAL_HOME/JLINK folder."

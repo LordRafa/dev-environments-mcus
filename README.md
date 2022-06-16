@@ -12,9 +12,9 @@ There are several advantages in using this Development Environment:
 * Easy installation of multiple MCUs toolchain with a single command.
 * Visual Studio Code extensions that you install inside the container remains in the container, which makes easy to customize different dev environments with different extensions.
 
-## How to use
+> **_NOTE:_** To use this software you need to install Visual Studio Code and make sure that it is available on the PATH. <br /> Also you must have permissions to create and run containers.
 
-In order to use this app you need to install Visual Studio Code and make sure that it is available on the PATH (running **code** on the terminal must open VSCode).
+## How to use
 
 First download the [latest](https://github.com/LordRafa/dev-environments-mcus/releases/latest) release and untar it.
 
