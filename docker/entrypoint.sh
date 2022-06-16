@@ -93,4 +93,3 @@ if [ ! -d "$HOME/JLINK" ]; then
 fi
 
 exec "$@"
-

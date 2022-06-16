@@ -25,6 +25,9 @@
 #
 #####################################################################################
 
+
+ACTION=="remove", ENV{SUBSYSTEM}=="usb|tty", RUN+="/usr/local/bin/dev-environments-mcus-udev.sh"
+
 #
 # Boards
 #

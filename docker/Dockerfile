@@ -24,7 +24,8 @@ RUN apt update; apt -y upgrade && \
     apt install -y git curl tio python3 git cmake gcc-arm-none-eabi gcc g++ \
                    gdb-multiarch automake autoconf build-essential texinfo \ 
                    libtool libftdi-dev libusb-1.0-0-dev pkg-config libgpiod-dev \
-                   python3-tk python3-distutils python3.10-venv bash-completion && \
+                   python3-tk python3-distutils python3.10-venv bash-completion \
+                   libsm6 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Pico SDK
