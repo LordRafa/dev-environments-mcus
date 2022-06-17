@@ -9,6 +9,7 @@ CONTAINER_NAME="dev-environments-mcus"
 if [ $# -eq 0 ]; then
 
   docker run --rm -d --name="$CONTAINER_NAME" \
+  --env=DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
   --device-cgroup-rule 'c 189:* rwm' --device-cgroup-rule 'c 188:* rwm' \
   -v "$LOCAL_HOME:/App_Home" -v "$LOCAL_WORKSPACE:/App_Home/mcu-projects" \
   lordrafa/dev-environments-mcus tail -f /dev/null

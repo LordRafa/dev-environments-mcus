@@ -25,7 +25,11 @@ RUN apt update; apt -y upgrade && \
                    gdb-multiarch automake autoconf build-essential texinfo \ 
                    libtool libftdi-dev libusb-1.0-0-dev pkg-config libgpiod-dev \
                    python3-tk python3-distutils python3.10-venv bash-completion \
-                   libsm6 && \
+                   libsm6 libxrandr2 libxrender1 libxcb-render0 libxcb-render-util0 \
+                   libxcb-shape0 libxcb-randr0 libxcb-xfixes0 libxcb-sync1 libxcb-shm0 \
+                   libxcb-icccm4 libxcb-keysyms1 libxcb-image0 libxkbcommon0 \
+                   libxkbcommon-x11-0 libfontconfig1 libfreetype6 libxext6 libx11-6 \
+                   libxcb1 libx11-xcb1 libice6 libglib2.0-0 libxfixes3 libxcursor1 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Pico SDK
